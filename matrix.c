@@ -1,10 +1,10 @@
 #include "matrix.h"
 
-void MatrixInitialize(const int rows, const int cols, int matrix[rows][cols]) 
+void MatrixInitialize(const int rows, const int cols, int matrix[rows][cols]) // 2 + 4n + 4n^2 + n^2 == 5n^2 + 4n + 2
 {
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < rows; i++) // 2 + 2n
     {
-        for (int j = 0; j < cols; j++)
+        for (int j = 0; j < cols; j++) //  * (2 + 2n)
         {
             /*if(rand()%RANDOM_SIZE % 2 == 0)
             {
@@ -12,17 +12,17 @@ void MatrixInitialize(const int rows, const int cols, int matrix[rows][cols])
             }
             else*/
             {
-                matrix[i][j] = rand() % RANDOM_SIZE; // Criando valores aleatórios positivos
+                matrix[i][j] = rand() % RANDOM_SIZE; // Criando valores aleatórios positivos // ;
             }
         }
     }
 }
 
-void MatrixPrint(const int rows, const int cols, int matrix[rows][cols])
+void MatrixPrint(const int rows, const int cols, int matrix[rows][cols]) // 5n^2 + 4n + 2
 {
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < rows; i++) // 2 + 2n
     {
-        for (int j = 0; j < cols; j++)
+        for (int j = 0; j < cols; j++) // * (2 + 2n)
         {
             printf("[%i][%i] = %i\t", i, j, matrix[i][j]); // Imprimindo matriz
         }
@@ -30,10 +30,10 @@ void MatrixPrint(const int rows, const int cols, int matrix[rows][cols])
     }
 }
 
-int MatrixWalk(const int rows, const int cols, int matrix[rows][cols])
+int MatrixWalk(const int rows, const int cols, int matrix[rows][cols]) // 5 + 5*n^2
 {
     int sum = 0;
-    int i = 0;
+    int i = 0; 
     int j = 0;
     sum += matrix[i][j];
     matrix[i][j] = -1;
